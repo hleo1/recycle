@@ -1,9 +1,54 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      <h1 style = "text-align:center">Your Profile </h1> 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+      <ion-item>
+        <h2 class="headers">John Doe</h2>
+          <br />
+      </ion-item>
+      
+      <ion-item>
+          <ion-avatar>
+             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+      </ion-item>
+     
+      <ion-item>
+        <ion-list>
+          <ion-label class="smalltext" style="text-align: center"> 100 Remali</ion-label>
+          <ion-label class="smalltext" style="text-align: center"> 32 Collections</ion-label>
+          <ion-label class="smalltext" style="text-align: center"> Camps Bay</ion-label>
+          <ion-label class="smalltext" style="text-align: center"> Member since 2017</ion-label>
+        </ion-list>
+      </ion-item>
+
+      
+
+      
+      <ion-list>
+        <ion-list-header>
+          <h3 class="headers">Your Account Details</h3>
+        </ion-list-header>
+        <ion-item>
+          <ion-icon slot="end" name="sync" color="success" class="icons"></ion-icon>
+          <ion-label>Collection Statistics</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon slot="end" name="card" color="success" class="icons"></ion-icon>
+          <ion-label><a href="../wallet/wallet.page.html"></a>Remali Earnings and Usage</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-button class="button" color="success" expand="block" >
+        Redeem Remali
+      </ion-button>
+   
+      
+      
+</ion-content>
