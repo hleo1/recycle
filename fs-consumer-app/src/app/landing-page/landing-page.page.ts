@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController
+  ) { }
+  login() {
+    //alert("Feature coming soon!")
+    // This should navigate to the register page:
+    this.navCtrl.navigateForward("user-login-page");
 
+  }
   ngOnInit() {
   }
 
