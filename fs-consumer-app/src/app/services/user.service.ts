@@ -9,12 +9,10 @@ import { calcBindingFlags } from '@angular/core/src/view/util';
   providedIn: 'root'
 })
 export class UserService {
- 
   users: Array<any>;
   loggedInUser: any;
 
   constructor(private httpClient: HttpClient) {
-    
 
   }
 
@@ -22,21 +20,19 @@ export class UserService {
 
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-      
-      this.httpClient.post(environment.BaseUrl + '/api/auth/login', Authuser, { headers }).subscribe((response: any)=>{
+      this.httpClient.post(environment.BaseUrl + '/api/auth/login', 
+      Authuser, { headers })
+      .subscribe((response: any)=>{
         console.log(response.id);
         localStorage.setItem('userId', response.id);
         resolve(response);
-        
       },
       (err: any) => {
         console.log(err);
         reject(err);
       }
 
-      );
-
-      
+      )
     });
 
   }
