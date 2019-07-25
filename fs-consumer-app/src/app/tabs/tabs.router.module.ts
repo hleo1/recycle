@@ -35,6 +35,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'wallet',
+        children: [
+          {
+            path: '',
+            loadChildren: '../wallet/wallet.module#WalletPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
