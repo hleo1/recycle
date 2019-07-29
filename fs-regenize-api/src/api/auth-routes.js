@@ -14,6 +14,7 @@ router.post("/register", (req, res) => {
         res.status(400).json({ msg: err.message });
       });
   });
+  //api.use api/auth/login
   
   router.post("/login", (req, res) => {
     authService.prototype.login(req.body)
