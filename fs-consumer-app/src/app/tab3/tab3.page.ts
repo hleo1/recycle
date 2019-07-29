@@ -12,7 +12,7 @@ export class Tab3Page {
     private navCtrl: NavController
   ) {}
   navToWallet() {
-      this.navCtrl.navigateForward('wallet');
+      this.navCtrl.navigateForward('tabs/wallet');
     }
   }
 

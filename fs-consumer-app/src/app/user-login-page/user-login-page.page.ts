@@ -27,19 +27,17 @@ export class UserLoginPagePage implements OnInit {
   ngOnInit() {
   }
   login() {
-    //  let authUser = new User(); 
-    // -- I would do this (add user model)
-    const authUser = {
-      EMAIL: this.EMAIL,
-      PASSWORD: this.PASSWORD
-    }
-    this.userService.logIn(authUser).then(user => {
-      // this.testId = localStorage.getItem('userid');
+
+    // const authUser = {
+    //   EMAIL: this.EMAIL,
+    //   PASSWORD: this.PASSWORD
+    // }
+    // this.userService.logIn(authUser).then(user => {
       this.navCtrl.navigateForward('tabs/tab1');
-    }).catch(err => {
-      console.log(err);
-      this.presentAlert(err);
-    });
+    // }).catch(err => {
+    //   console.log(err);
+    //   this.presentAlert(err);
+    // });
   }
   
   register() {
