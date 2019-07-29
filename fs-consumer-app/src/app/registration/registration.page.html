@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title class="regen-main">Welcome</ion-title>
+    <ion-title>Registration</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,35 +8,64 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset="3">
-        <ion-card>
-          <ion-card-header color="success">
-            <ion-card-title>Login</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-             <ion-item>
-               <ion-label position="floating">Email</ion-label>
-               <ion-input type="text"></ion-input>
-             </ion-item>
-             <ion-item>
-               <ion-label position="floating">Password</ion-label>
-               <ion-input type="text"></ion-input>
-             </ion-item>
-             <div text-align="center">
-              <ion-button  color="success">
-                <ion-icon position="floating" slot="start" name="login"></ion-icon>
-                 Login
-              </ion-button>
-       
-              <ion-button color="success" href="registration">
-                <ion-icon position="floating" slot="start" name="registration"></ion-icon>
-                 Register
-              </ion-button>
-             </div>
-           </ion-card-content>
-         </ion-card>
-         
+          <ion-card >
+              <ion-card-header text-align="center" color="success">
+                <ion-card-title >Welcome</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                 <ion-item>
+                   <ion-label position="floating" name="name" required>Name:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "NAME"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="surName" required>Surname:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "SURNAME"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="email" required>Email:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "EMAIL"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="emailVer" required>Email Verification:</ion-label>
+                   <ion-input type="text" ></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name ="password" required>Password:</ion-label>
+                   <ion-input type="password" [(ngModel)]= "PASSWORD"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="contactNumber" required>Cellphone number:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "CONTACT_NUMBER"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="streetAddress" required>Street address:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "ADDRESS"></ion-input>
+                 </ion-item>
+                  <ion-item>
+                   <ion-label position="floating" name ="suburb" required>Suburb:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "SUBURB"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="postalCode" required>Postal Code:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "POSTAL_CODE"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <ion-label position="floating" name="city"required>City:</ion-label>
+                   <ion-input type="text" [(ngModel)]= "CITY"></ion-input>
+                 </ion-item>
+                 <div>
+                  <ion-button color="success" (click)= "submit()">
+                    <ion-icon position="floating" slot="start" name="Register" required></ion-icon>
+                     Register
+                  </ion-button>
+                 </div>
+                 <div text-align="center">
+                   <a href="user-login-page"><p>Already part of the Regenize Family?</p></a> 
+                 </div>
+               </ion-card-content>
+             </ion-card>
+             
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 </ion-content>
