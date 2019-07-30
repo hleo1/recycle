@@ -1,0 +1,9 @@
+{
+    "Source": "leo.hubert3@gmail.com",
+    "Template": "test2template",
+    "Destination": {
+      "ToAddresses": [ "hleo1@jhu.edu"
+      ]
+    },
+    "TemplateData": "{ }"
+  }
