@@ -10,15 +10,9 @@ import { calcBindingFlags } from '@angular/core/src/view/util';
   providedIn: 'root'
 })
 export class UserService {
- 
+ private user: any;
   users: Array<any>;
   loggedInUser: any;
-<<<<<<< HEAD
-
-  constructor(private httpClient: HttpClient) {
-    
-
-=======
 //
   constructor(public http: HttpClient) {
   }
@@ -35,23 +29,16 @@ export class UserService {
           }
         );
     });
->>>>>>> 35c753271943f1bd0e7009648c7aa5c597cdcac8
   }
 
   public logIn(Authuser: any) {
 
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-<<<<<<< HEAD
-      
-      this.httpClient.post(environment.BaseUrl + '/api/auth/login', Authuser, { headers }).subscribe((response: any)=>{
-        console.log(response.id); 
-=======
-      this.http.post(environment.BaseUrl + '/api/auth/login', 
+      this.http.post(environment.BaseUrl + 'api/auth/login', 
       Authuser, { headers })
       .subscribe((response: any)=>{
-        console.log(response.id);
->>>>>>> 35c753271943f1bd0e7009648c7aa5c597cdcac8
+        console.log(Authuser.id);
         localStorage.setItem('userId', response.id);
         resolve(response);
         
@@ -71,7 +58,7 @@ export class UserService {
   public addUser(newUser: any){
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-      this.http.post(environment.BaseUrl + '/api/auth/register', newUser, { headers }).subscribe((response: any)=>{
+      this.http.post(environment.BaseUrl + 'api/auth/register', newUser, { headers }).subscribe((response: any)=>{
         console.log(response.id);
         localStorage.setItem('userId', response.id);
         resolve(response);
@@ -79,6 +66,25 @@ export class UserService {
       (err: any) => {
         console.log(err);
         reject(err);
+      }
+
+      );
+    });
+  }
+
+  public getUserByID(userId){
+    return new Promise<any>((resolve, reject) => {
+      const headers = new HttpHeaders();
+      
+      this.http.post(environment.BaseUrl + 'api/list/view', userId, { headers }).subscribe((response: any)=>{
+        console.log(response.id);
+        
+        resolve(response);
+        
+      },
+      (err: any) => {
+        console.log(err);
+        reject("err " +err);
       }
 
       );
