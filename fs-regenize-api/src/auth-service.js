@@ -1,4 +1,4 @@
-const User = require('../utilities/model/user-model');
+const User = require('./user-model');
 
 
 module.exports = class AuthService {
@@ -7,7 +7,22 @@ module.exports = class AuthService {
       var salt = bcrypt.genSalt(10);
       return await bcrypt.hash(password, salt);
     }
-  
+    getUserByID(userId) {
+      return new Promise((resolve, reject) => {
+        User.getUserById(userId, (err, res)=>{
+          if(err) reject(err);
+          let dbUser = res.filter(dbUser=>{
+            return dbUser.CUSTOMER_ID == userId;
+          })
+        })
+        if(dbUser){
+          resolve(dbUser)
+        }else{
+          reject("no users found");
+        }
+       
+      });
+    }
     register(user) {
     
       return new Promise((resolve, reject) => {
@@ -66,6 +81,7 @@ module.exports = class AuthService {
           let dbUser = dbUsers.filter(dbUser =>{
             return dbUser.EMAIL == user.EMAIL;
           });
+
           if(dbUser.length){
             if(dbUser[0].PASSWORD != user.PASSWORD){
               reject("Incorrect password");
