@@ -10,7 +10,7 @@ import { calcBindingFlags } from '@angular/core/src/view/util';
   providedIn: 'root'
 })
 export class UserService {
- 
+ private user: any;
   users: Array<any>;
   loggedInUser: any;
 //
@@ -35,10 +35,17 @@ export class UserService {
 
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
+<<<<<<< HEAD
       this.http.post(environment.BaseUrl + '/api/auth/login', 
       Authuser, { headers })
       .subscribe((response: any)=>{
         console.log(response.id);
+=======
+      this.http.post(environment.BaseUrl + 'api/auth/login', 
+      Authuser, { headers })
+      .subscribe((response: any)=>{
+        console.log(Authuser.id);
+>>>>>>> 97c0ac56659757904a2b8efecf758a687db4cb7e
         localStorage.setItem('userId', response.id);
         resolve(response);
         
@@ -56,7 +63,7 @@ export class UserService {
   public addUser(newUser: any){
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-      this.http.post(environment.BaseUrl + '/api/auth/register', newUser, { headers }).subscribe((response: any)=>{
+      this.http.post(environment.BaseUrl + 'api/auth/register', newUser, { headers }).subscribe((response: any)=>{
         console.log(response.id);
         localStorage.setItem('userId', response.id);
         resolve(response);
@@ -64,6 +71,25 @@ export class UserService {
       (err: any) => {
         console.log(err);
         reject(err);
+      }
+
+      );
+    });
+  }
+
+  public getUserByID(userId){
+    return new Promise<any>((resolve, reject) => {
+      const headers = new HttpHeaders();
+      
+      this.http.post(environment.BaseUrl + 'api/list/view', userId, { headers }).subscribe((response: any)=>{
+        console.log(response.id);
+        
+        resolve(response);
+        
+      },
+      (err: any) => {
+        console.log(err);
+        reject("err " +err);
       }
 
       );

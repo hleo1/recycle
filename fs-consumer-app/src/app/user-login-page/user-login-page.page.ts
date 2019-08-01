@@ -14,6 +14,7 @@ export class UserLoginPagePage implements OnInit {
   public user = new User();
   public EMAIL: string;
   public PASSWORD: string;
+  public id: number;
 
   public users: Array<any>;
   testId: string;
@@ -28,16 +29,17 @@ export class UserLoginPagePage implements OnInit {
   }
   login() {
 
-    // const authUser = {
-    //   EMAIL: this.EMAIL,
-    //   PASSWORD: this.PASSWORD
-    // }
-    // this.userService.logIn(authUser).then(user => {
+    const authUser = {
+      id: this.id,
+      EMAIL: this.EMAIL,
+      PASSWORD: this.PASSWORD
+    }
+    this.userService.logIn(authUser).then(user => {
       this.navCtrl.navigateForward('tabs/tab1');
-    // }).catch(err => {
-    //   console.log(err);
-    //   this.presentAlert(err);
-    // });
+    }).catch(err => {
+      console.log(err);
+      this.presentAlert(err);
+    });
   }
   
   register() {

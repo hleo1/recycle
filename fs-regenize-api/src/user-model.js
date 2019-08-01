@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-var mysqlConn = require("../../data/database");
+var mysqlConn = require("./database");
 
 const roles = {
   ADMIN: "admin",
@@ -69,7 +69,7 @@ User.findUserByName = (userName, result) => {
 };
 
 User.getUserById = (userId, result) => {
-  mysqlConn.query("Select * from RG_CUSTOMER where id = ? ", userId, (err,res) => {
+  mysqlConn.query("Select * from RG_CUSTOMER where CUSTOMER_ID = ? ", userId, (err,res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
