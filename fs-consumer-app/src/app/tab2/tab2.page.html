@@ -7,28 +7,90 @@
 <ion-content class=" " padding>
 
   <ion-card>
-    <img src="img/85211498.jpg">
+    <!-- <img src="img/85211498.jpg"> -->
     <div class=" ">Image</div>
     <div>
       <ion-button position="floating" (click)="why()">Why recycle?</ion-button>
     </div>
   </ion-card>
   <ion-card>
-    <img src="img/terry. jpg">
+    <!-- <img src="img/terry. jpg"> -->
     <div class=" ">How</div>
     <div>
      <ion-button position="floating" (click)="how()">How do you recycle?</ion-button>
     </div>
   </ion-card>
   <ion-card>
-    <img src="img/TI5sYD6">
+    <!-- <img src="img/TI5sYD6"> -->
     <div class=" ">Image</div>
     <div>
      <ion-button position="floating" (click)="what()">What can you recycle?</ion-button>
     </div>
+    <div padding>
+      <ion-segment [(ngModel)]="recyclables" color="success">
+        <ion-segment-button value="plastics" >
+          Plastics
+        </ion-segment-button>
+        <ion-segment-button value="paper">
+          Paper
+        </ion-segment-button>
+        <ion-segment-button value="glass-metal">
+          Glass / Metals
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    
+    <div [ngSwitch]="recyclables">
+      <ion-list *ngSwitchCase="'plastics'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj-_8ff5uvjAhUSAWMBHWGKAgUQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPET_bottle_recycling&psig=AOvVaw3cie_C99HGLTdjPvP6htWd&ust=1565096921237916">
+          </ion-thumbnail>
+          <h2>PET 1 Bottles</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjUhOaE6OvjAhUSoRQKHeQ6DygQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHigh-density_polyethylene&psig=AOvVaw2GimLkIm-EVYg68Jf4xcOp&ust=1565097323401875">
+          </ion-thumbnail>
+          <h2>HDPE 2 Bottles</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj7v4Sv6OvjAhVE8OAKHfehAu8QjRx6BAgBEAU&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fcommons.wikimedia.org%252Fwiki%252FFile%253ASymbol_Resin_Code_5_PP.svg%26psig%3DAOvVaw398USrDT5e_xkLUsQwP-2i%26ust%3D1565097405584083&psig=AOvVaw398USrDT5e_xkLUsQwP-2i&ust=1565097405584083">
+          </ion-thumbnail>
+          <h2>PP 5 Bottles</h2>
+        </ion-item>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'paper'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Paper Coffee Cups</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>No Greasy Pizza Boxes!</h2>
+        </ion-item>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'glass-metal'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Glass Bottles</h2>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Aluminum Foil</h2>
+        </ion-item>      </ion-list>
+    </div>
   </ion-card>
-  
-            
-  
-
 </ion-content>
+

@@ -35,17 +35,10 @@ export class UserService {
 
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-<<<<<<< HEAD
       this.http.post(environment.BaseUrl + '/api/auth/login', 
       Authuser, { headers })
       .subscribe((response: any)=>{
         console.log(response.id);
-=======
-      this.http.post(environment.BaseUrl + 'api/auth/login', 
-      Authuser, { headers })
-      .subscribe((response: any)=>{
-        console.log(Authuser.id);
->>>>>>> 97c0ac56659757904a2b8efecf758a687db4cb7e
         localStorage.setItem('userId', response.id);
         resolve(response);
         
