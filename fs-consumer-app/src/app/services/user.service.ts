@@ -35,10 +35,10 @@ export class UserService {
 
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-      this.http.post(environment.BaseUrl + 'api/auth/login', 
+      this.http.post(environment.BaseUrl + '/api/auth/login', 
       Authuser, { headers })
       .subscribe((response: any)=>{
-        console.log(Authuser.id);
+        console.log(response.id);
         localStorage.setItem('userId', response.id);
         resolve(response);
         
@@ -49,8 +49,6 @@ export class UserService {
       }
 
       );
-
-      
     });
 
   }

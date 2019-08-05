@@ -20,7 +20,8 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.router.navigateByUrl('landing-page');
+      this.router.navigateByUrl('tabs/tab2');
+      // this.router.navigateByUrl('landing-page');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
