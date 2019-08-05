@@ -12,8 +12,8 @@ import { User } from '../models/user';
 })
 export class UserLoginPagePage implements OnInit {
   public user = new User();
-  public EMAIL: string;
-  public PASSWORD: string;
+  public email: string;
+  public password: string;
   public id: number;
 
   public users: Array<any>;
@@ -31,8 +31,8 @@ export class UserLoginPagePage implements OnInit {
 
     const authUser = {
       id: this.id,
-      EMAIL: this.EMAIL,
-      PASSWORD: this.PASSWORD
+      email: this.email,
+      password: this.password
     }
     this.userService.logIn(authUser).then(user => {
       this.navCtrl.navigateForward('tabs/tab1');
@@ -51,7 +51,7 @@ export class UserLoginPagePage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Alert',
       subHeader: 'Failed to login',
-      message: err,
+      message: err.message,
       buttons: ['OK']
     });
 
