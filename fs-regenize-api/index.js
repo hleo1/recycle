@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const usersRouter = require('./src/api/user-routes');
+const usersRouter = require('./src/user-routes');
 
 app.use(cors());
 app.use(express.json());
@@ -14,8 +14,8 @@ const logger = (req,res,next) => {
 
 app.use(logger);
 app.use('/api/user', usersRouter);
-app.use('/api/auth', require('./src/api/auth-routes'));
-app.use('/api/list', require('./src/api/list-routes'));
+app.use('/api/auth', require('./src/auth-routes'));
+app.use('/api/list', require('./src/list-routes'));
  
 const PORT = process.env.PORT || 3000;
 

@@ -38,25 +38,23 @@ module.exports = class AuthService {
          
           
           const userObj = {
-            EMAIL: user.EMAIL,
-            NAME: user.NAME,
-            DOB: user.DOB,
-            ADDRESS: user.ADDRESS,
-            CITY: user.CITY,
-            POSTAL_CODE: user.POSTAL_CODE,
-            SUBURB: user.SUBURB,
-            CONTACT_NUMBER: user.CONTACT_NUMBER,
-            P_AVAILABLE: user.P_AVAILABLE,
-            P_USED: user.P_USED,
-            CARBON_EMISSION: user.CARBON_EMISSION,
-            PASSWORD: user.PASSWORD,
-            CUSTOMER_CODE: user.CUSTOMER_CODE,
-            SIGNUP_DATE: user.SIGNUP_DATE,
-            APARTMENT_NAME: user.APARTMENT_NAME,
-            UNIT_NUMBER: user.UNIT_NUMBER,
-            COLLECTOR_ID: user.COLLECTOR_ID,
-            COLL_DATE: user.COLL_DATE,
-            CUSTOMER_ID: user.CUSTOMER_ID
+            id: user.id,
+            email: user.email,
+            address: user.address,
+            collector_id: user.collector_id,
+            remali: user.remali,
+            points: user.points,
+            kg_recycled: user.kg_recycled,
+            emissions: user.emissions,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            photo: user.photo,
+            type: user.type,
+            collection_date: user.collection_date,
+            password: user.password,
+            suburb: user.suburb,
+            postal_code: user.postal_code,
+            city: user.city
           };
   
   
@@ -79,11 +77,11 @@ module.exports = class AuthService {
         User.findAllUsers((err, dbUsers) =>{
           if(err) reject(err);
           let dbUser = dbUsers.filter(dbUser =>{
-            return dbUser.EMAIL == user.EMAIL;
+            return dbUser.email == user.email;
           });
 
           if(dbUser.length){
-            if(dbUser[0].PASSWORD != user.PASSWORD){
+            if(dbUser[0].password != user.password){
               reject("Incorrect password");
             } 
             else {

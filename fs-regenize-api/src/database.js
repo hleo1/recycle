@@ -3,11 +3,11 @@
 const mysql = require("mysql");
 
 const config = {
-  host: "regenizedb.cqd3aklkco2y.us-east-2.rds.amazonaws.com",
+  host: "localhost",
   port: 3306,
-  user: "fs_regenize",
-  password: "byronschildren",
-  database: "fs_regenize"
+  user: "root",
+  password: "Alipet@1",
+  database: "fs_regenize_2019"
 };
 
 var connection = mysql.createConnection(config);

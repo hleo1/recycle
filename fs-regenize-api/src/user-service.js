@@ -1,4 +1,4 @@
-var User = require("../utilities/model/user-model");
+var User = require("./user-model");
 
 module.exports = class UserService {
   constructor() {}
