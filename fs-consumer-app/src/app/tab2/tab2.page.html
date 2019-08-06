@@ -10,21 +10,55 @@
     <!-- <img src="img/85211498.jpg"> -->
     <div class=" ">Image</div>
     <div>
-      <ion-button position="floating" (click)="why()">Why recycle?</ion-button>
+      <ion-button color="success" slot="center" (click)="why()">Why recycle?</ion-button>
     </div>
+    <ion-card-header>
+      <ion-card-title>Protect the environment.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        Recycling reduces the need for extracting, refining and processing raw materials all of which create air and water pollution. As recycling saves energy it also reduces greenhouse gas emissions, which helps to tackle climate change.
+    </ion-card-content>
   </ion-card>
   <ion-card>
     <!-- <img src="img/terry. jpg"> -->
     <div class=" ">How</div>
     <div>
-     <ion-button position="floating" (click)="how()">How do you recycle?</ion-button>
+     <ion-button position="floating"  color="success" (click)="how()">How do you recycle?</ion-button>
     </div>
+  
+    
+    <ion-card-header>
+      <ion-card-subtitle>Our Process</ion-card-subtitle>
+      <ion-card-title>Arrange Your Collection Date</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Choose a date and time, and we'll come collect your recyclables. Your collector will weigh the bag upon arrival and make sure you're well on your way to meeting your goal for the week and earning Remali!
+    </ion-card-content>
+
+    <ion-card-header>
+      <ion-card-subtitle>Be ready for collection day</ion-card-subtitle>
+      <ion-card-title>Start Collecting your recyclables</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Be sure you're separating your waste, rinsing the recyclables if there's any residual food on them, and crushing whatever items you can into their smallest form, so you're ready for collection day.
+    </ion-card-content>
+
+    <ion-card-header>
+      <ion-card-subtitle>Saving the world just became fun</ion-card-subtitle>
+      <ion-card-title>Meet your goals for the week and get rewarded</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Be sure to set a goal for points each week and follow through. Doing so will get you plays to use in our game, which you can then turn into Remali. 
+    </ion-card-content>
   </ion-card>
+
+
+
   <ion-card>
     <!-- <img src="img/TI5sYD6"> -->
-    <div class=" ">Image</div>
+    <div class=" " >Image</div>
     <div>
-     <ion-button position="floating" (click)="what()">What can you recycle?</ion-button>
+     <ion-button position="floating" color="success" (click)=what()>What can you recycle?</ion-button>
     </div>
     <div padding>
       <ion-segment [(ngModel)]="recyclables" color="success">
