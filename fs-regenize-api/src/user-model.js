@@ -9,31 +9,30 @@ const roles = {
 };
 //Task object constructor
 var User = function(user) {
-  this.EMAIL = user.EMAIL;
-  this.NAME = user.NAME;
-  this.DOB = user.DOB;
-  this.ADDRESS = user.ADDRESS;
-  this.CITY = user.CITY;
-  this.POSTAL_CODE = user.POSTAL_CODE;
-  this.SUBURB = user.SUBURB;
-  this.CONTACT_NUMBER = user.CONTACT_NUMBER;
-  this.P_AVAILABLE = user.P_AVAILABLE;
-  this.P_USED = user.P_USED;
-  this.CARBON_EMISSION = user.CARBON_EMISSION;
-  this.PASSWORD = user.PASSWORD;
-  this.CUSTOMER_CODE = user.CUSTOMER_CODE;
-  this.SIGNUP_DATE = user.SIGNUP_DATE;
-  this.APARTMENT_NAME = user.APARTMENT_NAME;
-  this.UNIT_NUMBER = user.UNIT_NUMBER;
-  this.COLLECTOR_ID = user.COLLECTOR_ID;
-  this.COLL_DATE = user.COLL_DATE;
-  this.CUSTOMER_ID = user.CUSTOMER_ID;
+  this.id = user.id;
+  this.email = user.email;
+  this.address = user.address;
+  this.collector_id = user.collector_id;
+  this.remali = user.remali;
+  this.points = user.points;
+  this.kg_recycled = user.kg_recycled;
+  this.emissions = user.emissions;
+  this.firstName = user.firstName;
+  this.lastName = user.lastName;
+  this.photo = user.photo;
+  this.type= user.type;
+  this.collection_date = user.collection_date;
+  this.password = user.password;
+  this.suburb = user.suburb;
+  this.postal_code = user.postal_code;
+  this.city = user.city;
+  
   
 };
 
 
   User.createUser = (newUser, result) => {
-    mysqlConn.query("INSERT INTO RG_CUSTOMER set ?", newUser, (err, res) => {
+    mysqlConn.query("INSERT INTO user set ?", newUser, (err, res) => {
         if (err) {
         console.log("error: ", err);
         result(err, null);
@@ -45,7 +44,7 @@ var User = function(user) {
 };
 
 User.findAllUsers = function(result) {
-  mysqlConn.query("Select * from RG_CUSTOMER", function(err, res) {
+  mysqlConn.query("Select * from user", function(err, res) {
       if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -57,7 +56,7 @@ User.findAllUsers = function(result) {
 };
 
 User.findUserByName = (userName, result) => {
-  mysqlConn.query("Select * from RG_CUSTOMER where name = ?", userName, (err, res) => {
+  mysqlConn.query("Select * from user where name = ?", userName, (err, res) => {
       if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -69,7 +68,7 @@ User.findUserByName = (userName, result) => {
 };
 
 User.getUserById = (userId, result) => {
-  mysqlConn.query("Select * from RG_CUSTOMER where CUSTOMER_ID = ? ", userId, (err,res) => {
+  mysqlConn.query("Select * from user where id = ? ", userId, (err,res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -95,7 +94,7 @@ User.updateUserById = (userId, user, result) => {
 };
 
 User.removeUser = (userId, result) => {
-  mysqlConn.query("DELETE FROM RG_CUSTOMER WHERE id = ?", userId, (err, res) => {
+  mysqlConn.query("DELETE FROM user WHERE id = ?", userId, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
